@@ -635,6 +635,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1388834144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8778667689825880853, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+  m_PrefabInstance: {fileID: 5414328231227426196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657a4bff57b8f4a4c978a2342a9efb60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5414328231227426196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,6 +657,22 @@ PrefabInstance:
     - target: {fileID: 4033423577643828621, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370133638155278570, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370133638155278570, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370133638155278570, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1388834144}
+    - target: {fileID: 6370133638155278570, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7036646441276808109, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -686,6 +713,26 @@ PrefabInstance:
     - target: {fileID: 7036646441276808109, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837392519216906264, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837392519216906264, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1388834144}
+    - target: {fileID: 8837392519216906264, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837392519216906264, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837392519216906264, guid: 34fb37ade3f32d24988c8ca38412142f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
