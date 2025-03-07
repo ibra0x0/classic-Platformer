@@ -6,7 +6,15 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 5f;
     Vector2 moveInput;
     Rigidbody2D rb;
-    public bool IsMoving { get; private set; }
+    private bool _isMoving = false;
+    public bool IsMoving { get {
+            return _isMoving;
+        }
+
+        private set {
+
+            _isMoving = value;
+        }; }
 
     private void Awake()
     {
