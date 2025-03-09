@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
-    public float runSpeed = 8f;
-    public float jumpImpulse = 10f;
+    public float runSpeed = 15f;
+    public float jumpImpulse = 8f;
+    public float airWalkSpeed = 3f;
 
 
     Vector2 moveInput;
@@ -20,18 +21,23 @@ public class PlayerController : MonoBehaviour
     private bool _isMoving = false;
     [SerializeField]
     private bool _isRunning = false;
-
+    
 
     public float currentMoveSpeed { get
         {
-            if (IsMoving)
+            if (IsMoving && !touchingDirections.IsOnWall)
             {
-                if (IsRunning)
+                if (touchingDirections.IsGrounded)
                 {
-                    return runSpeed;
-                }
 
-                else { return walkSpeed; }
+                    if (IsRunning)
+                    {
+                        return runSpeed;
+                    }
+
+                    else { return walkSpeed; }
+                }
+                else { return airWalkSpeed; }
             }
 
             else { return 0; }
