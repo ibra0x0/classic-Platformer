@@ -18529,6 +18529,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2595191950355818948, guid: fad707489dc0adc4c87394b28cca6bce, type: 3}
+      propertyPath: castFilter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3020277825669856595, guid: fad707489dc0adc4c87394b28cca6bce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7196818
