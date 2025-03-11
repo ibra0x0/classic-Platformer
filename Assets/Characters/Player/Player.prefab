@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8567878095917724009}
   - component: {fileID: 260410994239256442}
   - component: {fileID: 1352036526640315419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 8
   jumpImpulse: 10
+  airWalkSpeed: 3
   _isFacingright: 1
   _isMoving: 0
   _isRunning: 0
@@ -184,7 +185,19 @@ MonoBehaviour:
     m_ActionId: cd687af3-d29a-4105-adcd-cf2acaa89cd0
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8778667689825880853}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 570edeee-a64a-4ed5-9100-0055acfab45a
     m_ActionName: 'Player/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -337,14 +350,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 128
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0

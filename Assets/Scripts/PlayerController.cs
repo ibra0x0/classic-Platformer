@@ -22,26 +22,34 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool _isRunning = false;
     
+    public bool canMove { get {
+            return animator.GetBool(AnimationStrings.canMove);
+        } }
 
     public float currentMoveSpeed { get
         {
-            if (IsMoving && !touchingDirections.IsOnWall)
+            if (canMove)
             {
-                if (touchingDirections.IsGrounded)
+                if (IsMoving && !touchingDirections.IsOnWall)
                 {
-
-                    if (IsRunning)
+                    if (touchingDirections.IsGrounded)
                     {
-                        return runSpeed;
+
+                        if (IsRunning)
+                        {
+                            return runSpeed;
+                        }
+
+                        else { return walkSpeed; }
                     }
-
-                    else { return walkSpeed; }
+                    else { return airWalkSpeed; }
                 }
-                else { return airWalkSpeed; }
-            }
 
+                else { return 0; }
+            }
             else { return 0; }
-        } }
+        }
+             }
     public bool IsMoving { get {
             return _isMoving;
         }
@@ -135,9 +143,17 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         // TODO check if alive as well
-        if (context.started && touchingDirections.IsGrounded) {
-            animator.SetTrigger(AnimationStrings.jump);
+        if (context.started && touchingDirections.IsGrounded && canMove) {
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context) {
+
+        if (context.started) {
+
+            animator.SetTrigger(AnimationStrings.attackTrigger);
         }
     }
 }
