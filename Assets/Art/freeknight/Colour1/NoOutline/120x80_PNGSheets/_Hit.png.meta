@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat glich_0
+      name: _Hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 735
-        height: 659
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 120
+        height: 80
+      alignment: 9
+      pivot: {x: 0.47, y: 0.23}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fea1b57270025a070800000000000000
-      internalID: 8116929118502329071
+      spriteID: 69dbfa660b8370d4cabf9db9d6de593c
+      internalID: -857308193
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d98941cd602eff54092aea633cbf5127
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat glich_0: 8116929118502329071
+      _Hit_0: -857308193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
