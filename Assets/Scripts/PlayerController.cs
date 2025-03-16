@@ -97,21 +97,32 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+       
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * currentMoveSpeed, rb.linearVelocityY);
-        animator.SetFloat(AnimationStrings.yVelocity , rb.linearVelocityY);
+        if (!LockVelocity)
+        {
+            rb.linearVelocity = new Vector2(moveInput.x * currentMoveSpeed, rb.linearVelocityY);
+            animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocityY);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
-        SetFacingDirection(moveInput);
+
+        if (IsAlive)
+        {
+
+            IsMoving = moveInput != Vector2.zero;
+            SetFacingDirection(moveInput);
+        }
+        else { IsMoving = false; }
+        
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -155,5 +166,17 @@ public class PlayerController : MonoBehaviour
 
             animator.SetTrigger(AnimationStrings.attackTrigger);
         }
+    }
+
+    public bool IsAlive {
+
+        get { return animator.GetBool(AnimationStrings.isAlive); }
+    }
+
+    public bool LockVelocity { get { return animator.GetBool(AnimationStrings.lockVelocity); } }
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
     }
 }

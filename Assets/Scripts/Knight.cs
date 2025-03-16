@@ -51,7 +51,6 @@ public class Knight : MonoBehaviour
     TouchingDirections touchingDirections;
     Rigidbody2D rb;
     public Vector2 walkDirectionVector = Vector2.right;
-    private bool hasFlipped = false;
 
 
 
@@ -70,7 +69,6 @@ public class Knight : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
-
     }
     public void FlipDirection()
     {
@@ -96,9 +94,7 @@ public class Knight : MonoBehaviour
 
         }
         if (CanMove)
-
             rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocityY);
-
         else
             rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocityX,0,walkRateSpeed), rb.linearVelocityY);
         
