@@ -5,9 +5,20 @@ public class Damageable : MonoBehaviour
 {
 
     public UnityEvent<int , Vector2> damageableHit;
+    
+    Animator animator;
+
+
+    [SerializeField]
+    private bool _isAlive = true;
+    [SerializeField]
+    private bool isInvincible = false;
+    [SerializeField]
+    private float invincibilityTime = 0.25f;
+    [SerializeField]
+    private int _health = 100;
     [SerializeField]
     private int _maxHealth = 100;
-    Animator animator;
 
     public int MaxHealth
     {
@@ -22,8 +33,14 @@ public class Damageable : MonoBehaviour
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]
-    private int _health = 100;
+    
+
+
+    public bool LockVelocity
+    {
+        get { return animator.GetBool(AnimationStrings.lockVelocity); }
+        set { animator.SetBool(AnimationStrings.lockVelocity, value); }
+    }
 
     public int Health { 
         get 
@@ -38,15 +55,10 @@ public class Damageable : MonoBehaviour
                 IsAlive = false; }
         }}
 
-    [SerializeField]
-    private bool _isAlive = true;
-    [SerializeField]
-    private bool isInvincible = false;
 
-    
 
     private float timeSinceHit = 0;
-    private float invincibilityTime = 0.25f;
+   
 
     public bool IsAlive {
 
@@ -93,6 +105,7 @@ public class Damageable : MonoBehaviour
 
             // notify other subscribed components that the damageable was hit to handle the knockback
             animator.SetTrigger(AnimationStrings.hitTrigger);
+            LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
             return true;
         }
