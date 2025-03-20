@@ -1,6 +1,7 @@
-using NUnit.Framework;
+
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class DetectionZone : MonoBehaviour
@@ -8,6 +9,12 @@ public class DetectionZone : MonoBehaviour
 
     public List<Collider2D> detectedColliders = new List<Collider2D>();
     Collider2D col;
+    public UnityEvent noCollidersRemain;
+
+    private void Awake()
+    {
+        col = GetComponent<Collider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,8 +25,8 @@ public class DetectionZone : MonoBehaviour
     {
         detectedColliders.Remove(collision);
 
+        if (detectedColliders.Count <= 0) {
+            noCollidersRemain.Invoke();
+        }
     }
-
-
-   
 }
